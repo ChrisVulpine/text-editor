@@ -38,7 +38,7 @@ module.exports = () => {
         description: 'Editing text the fun way!', // Description of the PWA
         background_color: '#ffffff', // Background color of the PWA
         theme_color: '#317EFB', // Theme color of the PWA
-        start_url: './', // Start URL of the PWA
+        start_url: '/', // Start URL of the PWA
         publicPath: '/', // Public path to ensure paths are correctly referenced in the manifest
         fingerprints: false, // To prevent fingerprinting in filenames
         inject: true, // Inject the manifest into the HTML
