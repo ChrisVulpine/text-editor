@@ -2,29 +2,26 @@ const butInstall = document.getElementById('buttonInstall');
 
 // // Logic for installing the PWA
 // // TODO: Add an event handler to the `beforeinstallprompt` event
-// window.addEventListener('beforeinstallprompt', (event) => {
+window.addEventListener('beforeinstallprompt', (event) => {
 
-//     event.preventDefault();
+    event.preventDefault();
+    window.deferredPrompt = event;
+    console.log('beforeinstallprompt event fired');
 
-//     butInstall.style.display = 'block';
+    butInstall.style.display = 'block';
+});
 
-//     window.deferredPrompt = event;
-
-
-// });
-
-if (!butInstall) {
-    console.error('buttonInstall element not found.');
-} else {
-    // Logic for installing the PWA
-    // Add an event handler to the `beforeinstallprompt` event
-    window.addEventListener('beforeinstallprompt', (event) => {
-        console.log('beforeinstallprompt event fired');
-        event.preventDefault();
-        butInstall.style.display = 'block';
-        window.deferredPrompt = event;
-    });
-}
+// if (!butInstall) {
+//     console.error('buttonInstall element not found.');
+// } else {
+//     window.addEventListener('beforeinstallprompt', (event) => {
+//         window.deferredPrompt = event;
+//         console.log('beforeinstallprompt event fired');
+//         event.preventDefault();
+//         butInstall.style.display = 'block';
+        
+//     });
+// }
 
 // TODO: Implement a click event handler on the `butInstall` element
 butInstall.addEventListener('click', async () => {
