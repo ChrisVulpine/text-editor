@@ -3,34 +3,44 @@ const WebpackPwaManifest = require('webpack-pwa-manifest');
 const path = require('path');
 const { InjectManifest } = require('workbox-webpack-plugin');
 
-// TODO: Add and configure workbox plugins for a service worker and manifest file.
-// TODO: [DONE} Add CSS loaders and babel to webpack.
+
+
+//================================================================================
+// Add and configure workbox plugins for a service worker and manifest file.
+// Add CSS loaders and babel to webpack.
+//================================================================================
 
 module.exports = () => {
+    
   return {
+
     mode: 'development',
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js'
     },
+
+
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
     },
+
+
     plugins: [
       // Generate the HTML file
       new HtmlWebpackPlugin({
         template: './index.html',
-        favicon: './favicon.ico',
+        // favicon: './favicon.ico',
         title: 'Text Editor',
       }),
+
       // Inject the service worker
       new InjectManifest({
         swSrc: './src-sw.js', // Source of the custom service worker
         swDest: 'src-sw.js', 
-        // swDest: 'service-worker.js', 
-        // Destination of the generated service worker
       }),
+
       // Generate the manifest file for PWA
       new WebpackPwaManifest({
         name: 'Jate', // Name of the PWA
@@ -42,6 +52,7 @@ module.exports = () => {
         publicPath: '/', // Public path to ensure paths are correctly referenced in the manifest
         fingerprints: false, // To prevent fingerprinting in filenames
         inject: true, // Inject the manifest into the HTML
+
         icons: [
           {
             src: path.resolve('src/images/logo.png'), // Path to the icon image
@@ -53,14 +64,15 @@ module.exports = () => {
     ],
 
     module: {
+
       rules: [
         {
-          test: /\.css$/, // Test for .css files
+          test: /\.css$/i, // Test for .css files
           use: ['style-loader', 'css-loader'], // Use style-loader and css-loader
         },
 
         {
-          test: /\.js$/, // Test for .js files
+          test: /\.m?js$/, // Test for .js files
           exclude: /node_modules/, // Exclude node_modules directory
           use: {
             loader: 'babel-loader', // Use babel-loader
@@ -74,3 +86,17 @@ module.exports = () => {
     },
   };
 };
+
+
+//================================================================================
+// Removed for Error testing
+//================================================================================
+
+    // devServer: {
+    //   static: {
+    //    // directory: path.join(__dirname, 'public'),
+    //   },
+    //   port: 3001,
+    // },
+    
+//================================================================================
