@@ -15,10 +15,10 @@ J.A.T.E. (Just Another Text Editor) is a markdown text editor that runs in the b
   - [Questions](#questions)
   
   ## Installation
-  To install this application locally, navigate to the [live site](). Once there, click the "Install" button located at the top left of the window.
+  To install this application locally, navigate to the [live site](https://jate-text-editor-y7h0.onrender.com). Once there, click the "Install" button located at the top left of the window.
 
   ## Usage
-Take a moment to visit the live site: [Here]()
+Take a moment to visit the live site: [Here](https://jate-text-editor-y7h0.onrender.com)
 
 ![app screenshot](client/src/images/screen-shot-jate.png)
 
